@@ -1,64 +1,30 @@
 #include<stdio.h>
-
-int cal(int, char, int);
-
-int flag;
-
+void reverse_array(int arr[],int length);
+void print_array(int arr[],int length);
 int main(void)
 {
-{
-	
-	int num1, num2, result,n;
-	char opr;
+int arr[4] = {1,2,4,5};
+ print_array(arr,4);
+ reverse_array(arr,4);
+ print_array(arr,4);
+ }
+ 
 
-	do
-	{
-		printf("Enter num1, opr, num2 : ");
-		scanf("%d %c %d", &num1, &opr, &num2);
-		result = cal(num1, opr, num2);
-		
-		if(flag == 0)
-			printf("%d %c %d = %d\n", num1, opr, num2, result);
-		else
-			flag = 0;
-
-	
-
+  void reverse_array(int arr[],int length)
+  {
+  int temp,i,j;
+   for( i=0,j=length-1;i<j;i++,j--)
+   {
+       temp = arr[i];
+	   arr[i] = arr[j];
+	   arr[j]=temp;
+	 
 	}
-   while(n!=0);
-	
-}
-}
-int cal(int num1, char opr, int num2)
-{
-   int result;
-
-	switch(opr)
-	{
-		case '+':
-			result = num1 + num2;
-			break;
-
-		case '-':
-			result = num1 - num2;
-			break;
-
-		case '*':
-			result = num1 * num2;
-			break;
-
-		case '/':
-			if(num2 != 0)
-				result = num1 / num2;
-			else
-			{
-				printf("denominator is zero\n");
-				flag = 1;
-			}
-			break;
+  }	
+  void print_array(int arr[],int length)
+   {
+   printf("Array : ");
+	for(int  i = 0 ; i < length ; i++)
+		printf("%-4d", arr[i]);
+	printf("\n");
 	}
-	return result;
-
-}
-
-
